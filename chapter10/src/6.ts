@@ -18,7 +18,8 @@
                 title: 'Another interesting book'
             });
             setTimeout(() => {
-                resolve(mookData);
+                // resolve(mookData);
+                reject(new Error(`Something terrible happened!`));
             }, 2000);
         });
     }
@@ -37,16 +38,26 @@
     //     });
     // }
 
-    // Lo realmente interesante es que con esta sintaxis hemos convertido la llamada asíncrona en síncrona, puesto que no se ejecutará la siguinte línea
+    // Lo realmente interesante es que con esta sintaxis hemos convertido la llamada asíncrona en síncrona, puesto que no se ejecutará la siguinte línea console.log('Actions to update GUI, such as...') hasta que finalice la Promise.
+    // Cualquier función que hace uso de await en su interior debe ser declarada como async.
+    // Y por defecto, devuelve una Promise que no está relacionada con la anterior, sino con el hecho de que su ejecución es un hilo paralelo en sí.
+    // La salida de la ejecución anterior es exactamente la misma.
+    // ¿Y si la Promise fuera rechazada?
+    // Con la sintaxis async-await, los rechazos de las promesas deben ser capturados con un bloque try-catch.
 
 
     async function whatTheLoadDataButtonDoes(): Promise<void> {
         console.log('Showing Loading...');
 
-        let arrayToBeDisplayedOnInterface: Book[] = await getRemoteData();
+        try {
+            let arrayToBeDisplayedOnInterface: Book[] = await getRemoteData();
 
-        console.log('Actions to update GUI, such as...');
-        console.log(arrayToBeDisplayedOnInterface);
+            console.log('Actions to update GUI, such as...');
+            console.log(arrayToBeDisplayedOnInterface);
+        } catch (e: String) {
+            console.log(e);
+        }
+
         console.log('Hide Loading...');
     }
 

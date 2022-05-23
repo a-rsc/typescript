@@ -23,7 +23,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
                 title: 'Another interesting book'
             });
             setTimeout(() => {
-                resolve(mookData);
+                // resolve(mookData);
+                reject(new Error(`Something terrible happened!`));
             }, 2000);
         });
     }
@@ -38,13 +39,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     //         console.log('Hide Loading...');
     //     });
     // }
-    // Lo realmente interesante es que con esta sintaxis hemos convertido la llamada asíncrona en síncrona, puesto que no se ejecutará la siguinte línea
+    // Lo realmente interesante es que con esta sintaxis hemos convertido la llamada asíncrona en síncrona, puesto que no se ejecutará la siguinte línea console.log('Actions to update GUI, such as...') hasta que finalice la Promise.
+    // Cualquier función que hace uso de await en su interior debe ser declarada como async.
+    // Y por defecto, devuelve una Promise que no está relacionada con la anterior, sino con el hecho de que su ejecución es un hilo paralelo en sí.
+    // La salida de la ejecución anterior es exactamente la misma.
+    // ¿Y si la Promise fuera rechazada?
+    // Con la sintaxis async-await, los rechazos de las promesas deben ser capturados con un bloque try-catch.
     function whatTheLoadDataButtonDoes() {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('Showing Loading...');
-            let arrayToBeDisplayedOnInterface = yield getRemoteData();
-            console.log('Actions to update GUI, such as...');
-            console.log(arrayToBeDisplayedOnInterface);
+            try {
+                let arrayToBeDisplayedOnInterface = yield getRemoteData();
+                console.log('Actions to update GUI, such as...');
+                console.log(arrayToBeDisplayedOnInterface);
+            }
+            catch (e) {
+                console.log(e);
+            }
             console.log('Hide Loading...');
         });
     }
