@@ -54,5 +54,4 @@
     let myObject = JSON.parse(myJSON);
 
     console.log(myObject);
-
 }

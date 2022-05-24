@@ -1,0 +1,18 @@
+{
+    "0": {
+        "name": "Developodo",
+        "ceo": "Álvaro",
+        "people": [
+            { "fullname": "Mary" },
+            { "fullname": "John" }
+        ]
+    },
+    "1": {
+        "name": "Solidgrafic",
+        "ceo": "JohnJosef",
+        "people": [
+            { "fullname": "Gloria" },
+            { "fullname": "Martha" }
+        ]
+    }
+}
