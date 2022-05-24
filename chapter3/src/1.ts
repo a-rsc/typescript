@@ -14,7 +14,6 @@
 }
 {
     // En este caso, la función test sí define un nuevo espacio de nombres y la variable foo definida con var es distinta a la declarada en el exterior.
-    // Dicho de otra forma, en el exterior de la función no se tiene alcance de esta variable y la salida es 123.
     var foo = 123;
     function test() {
         var foo = 456;
@@ -24,15 +23,13 @@
 }
 
 // La mayoría de los lenguajes tipados modernos, tanto orientado a procesos como objetos, siguen el patrón block-scoping que proporciona let. Por este motivo, a lo largo de los ejemplos y proyectos desarrollados en este documento, se evita el uso de variables globales y de su declaración mediante var.
-
 {
-    // Para aquellas variables que se definen y asignan un valor inmutable, se recomienda el uso de const.
-    const nombre = 'Alvaro';
-    let sentence = `My name is ${nombre}`;
+    const name = 'Alvaro'; // Para aquellas variables que se definen y asignan un valor inmutable, se recomienda el uso de const.
+    let sentence = `My name is ${name}`;
     console.log(sentence);
 }
 {
-    // El tipado de TypeScript es opcional y en la declaración se define tras el nombre de la variable seguido de : y el tipo, en este caso boolean. A partir de este momento, el transpilador de TypeScript, si está configurado en modo strict, controlará el valor que se le asigna a esta variable y advertirá de posibles errores de conversión.
+    // El tipado de TypeScript es OPCIONAL y en la declaración se define tras el nombre de la variable seguido de :. A partir de este momento, el transpilador de TypeScript, si está configurado en modo STRICT, controlará el valor que se le asigna a esta variable y advertirá de posibles errores de conversión.
     const fullName: string = 'Álvaro Rodríguez';
     const age: number = 44;
     let sentence: string = `Hi, my name is ${fullName}. I'll be ${age +1} years old next June.`;
@@ -42,7 +39,7 @@
     console.log(fullName.charCodeAt(1));
     console.log(fullName.concat(' says Hi!'));
     console.log(fullName.indexOf('a') + ' & ' + fullName.indexOf('x'));
-    console.log(fullName.lastIndexOf('e'));
+    console.log(fullName.lastIndexOf('a'));
     console.log(fullName.charCodeAt(7) + ' & ' + 'Álvaro Santa Cruz'.charCodeAt(7));
     console.log(fullName.split(' '));
 
@@ -54,7 +51,7 @@
     console.log(fullName.toLowerCase());
 }
 {
-    const sentence:string = `Hello world\nTypescript is really great,\nso be patient`;
+    const sentence: string = `Hello world\nTypescript is really great,\nso be patient`;
     let regexp: RegExp = /el+o/;
     // let regexp: RegExp = new RegExp('ab+c');
     console.log(sentence);
@@ -64,7 +61,7 @@
 }
 {
     let regexp: RegExp = /\bTypeScript\b/ig;
-    let sentence = " TypeScript rules! TypeScript rocks!";
+    let sentence: string = " TypeScript rules! TypeScript rocks!";
     console.log(regexp.test(sentence));
     console.log(sentence.match(regexp));
 }

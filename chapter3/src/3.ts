@@ -1,5 +1,5 @@
 {
-    let map = new Map();
+    let map: Map<string, number> = new Map();
     map.set('A', 0);
     map.set('B', 1);
     map.set('C', 2);
@@ -33,10 +33,11 @@
     let set = new Set([
         'APPLE', 'ORANGE', 'MANGO',
     ]);
-    set.has('APPLE');
+    console.log(set.has('APPLE'));
     set.delete('APPLE');
     console.log(set.size);
     set.add('ORANGE');
+    console.log(set);
     console.log(set.size);
     set.clear();
     console.log(set.size);
@@ -56,9 +57,9 @@
     // ... página 54
 }
 {
-    let myArrayObject:{name: string, age:number}[] = [];
+    let myArrayObject: Array<{name: string, age: number}> = [];
     myArrayObject.push({
-        name: 'Carlos', age: 40,
+        name: 'Carlos', age: 40
     });
     myArrayObject.push({
         name: 'Eve', age: 42
@@ -100,7 +101,8 @@
     // notSure.ifItExists();
     // notSure.toFixed();
 
-    let prettySure: Object = 4;
+    // let prettySure: Object = 4;
+    let prettySure: Number = 4;
     // The toFixed() function in TypeScript is used to format a number using fixed-point notation. It can be used to format a number with a specific number of digits to the right of the decimal.
     console.log(prettySure, prettySure.toFixed());
 
@@ -116,23 +118,24 @@
         throw new Error(message);
     }
 
-    // Inferred return type is never
-    function fail() {
-        return error('Something failed!');
-    }
-
     // Function returning never must have unreachable end point
     function infiniteLoop(): never {
         while (true) {
         }
     }
 
+    // Inferred return type is never
+    function fail() {
+        return error('Something failed!');
+    }
+
     // error('Hello world!');
-    // fail();
     // infiniteLoop();
+    // fail();
 }
 {
-    function foo(arr: readonly string[]) {
+    // function foo(arr: readonly string[]) {
+    function foo(arr: string[]) {
         arr.slice();
         arr.push('!');
     }
@@ -141,5 +144,5 @@
     console.log(myarray);
     foo(myarray);
     console.log(myarray);
-    let x: readonly number = 5;
+    let x: number = 5;
 }

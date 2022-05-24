@@ -1,13 +1,13 @@
 {
-    let mysymbol: symbol = Symbol();
+    let mysymbol: Symbol = Symbol();
     console.log(typeof mysymbol);
 }
 {
     // Los símbolos son inmutables y globalmente únicos, lo que hace ideal su uso para emplearlos como claves privadas para objetos.
     // let ageSymbol = Symbol('age');
     // let nameSymbol = Symbol('name');
-    const ageSymbol:unique symbol = Symbol('age');
-    const nameSymbol:unique symbol = Symbol('name');
+    const ageSymbol = Symbol('age');
+    const nameSymbol = Symbol('name');
     // interface ObjectType {
     //     score: number,
     //     ageSymbol: symbol,
@@ -30,7 +30,7 @@
     // console.log(obj);
 
     Object.getOwnPropertyNames(obj).forEach(function(value, index, array) {
-        console.log(value + ' > ' + obj[value]);
+        console.log(value + ' > ' + (<any>obj)[value], typeof (<any>obj)[value]);
     });
 
     console.log(Object.getOwnPropertyNames(obj));
@@ -40,7 +40,7 @@
     // tsconfig.json
     // "strict": false
     for (let sym of Object.getOwnPropertySymbols(obj)) {
-        console.log(sym.toString() + ' > ' + obj[sym]);
+        console.log(sym.toString() + ' > ' + (<any>obj)[sym], typeof (<any>obj)[sym]);
     }
 }
 {
@@ -128,8 +128,8 @@
 }
 {
     interface Person {
-        fullName: [string, string],
-        age: number
+        fullName: [String, String],
+        age: Number
     }
     let contacts: Array<Person> = [];
     console.log(contacts);

@@ -15,7 +15,6 @@
 }
 {
     // En este caso, la función test sí define un nuevo espacio de nombres y la variable foo definida con var es distinta a la declarada en el exterior.
-    // Dicho de otra forma, en el exterior de la función no se tiene alcance de esta variable y la salida es 123.
     var foo = 123;
     function test() {
         var foo = 456;
@@ -25,13 +24,12 @@
 }
 // La mayoría de los lenguajes tipados modernos, tanto orientado a procesos como objetos, siguen el patrón block-scoping que proporciona let. Por este motivo, a lo largo de los ejemplos y proyectos desarrollados en este documento, se evita el uso de variables globales y de su declaración mediante var.
 {
-    // Para aquellas variables que se definen y asignan un valor inmutable, se recomienda el uso de const.
-    const nombre = 'Alvaro';
-    let sentence = `My name is ${nombre}`;
+    const name = 'Alvaro'; // Para aquellas variables que se definen y asignan un valor inmutable, se recomienda el uso de const.
+    let sentence = `My name is ${name}`;
     console.log(sentence);
 }
 {
-    // El tipado de TypeScript es opcional y en la declaración se define tras el nombre de la variable seguido de : y el tipo, en este caso boolean. A partir de este momento, el transpilador de TypeScript, si está configurado en modo strict, controlará el valor que se le asigna a esta variable y advertirá de posibles errores de conversión.
+    // El tipado de TypeScript es OPCIONAL y en la declaración se define tras el nombre de la variable seguido de :. A partir de este momento, el transpilador de TypeScript, si está configurado en modo STRICT, controlará el valor que se le asigna a esta variable y advertirá de posibles errores de conversión.
     const fullName = 'Álvaro Rodríguez';
     const age = 44;
     let sentence = `Hi, my name is ${fullName}. I'll be ${age + 1} years old next June.`;
@@ -40,7 +38,7 @@
     console.log(fullName.charCodeAt(1));
     console.log(fullName.concat(' says Hi!'));
     console.log(fullName.indexOf('a') + ' & ' + fullName.indexOf('x'));
-    console.log(fullName.lastIndexOf('e'));
+    console.log(fullName.lastIndexOf('a'));
     console.log(fullName.charCodeAt(7) + ' & ' + 'Álvaro Santa Cruz'.charCodeAt(7));
     console.log(fullName.split(' '));
     // Compara las cadenas: 1 si a es mayor que b, 0 si son iguales y -1 si a es menor que b, siendo a.localeCompare(b)

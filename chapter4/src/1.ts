@@ -4,7 +4,12 @@
         age: 40,
     };
 
-    function prettyPrint(person = {name: 'unknown', age: 0}) {
+    const unknown = {
+        name: 'unknown',
+        age: 0
+    }
+
+    function prettyPrint(person = unknown): String {
         return `${person.name} is ${person.age}`;
     }
 
@@ -12,8 +17,8 @@
     console.log(prettyPrint());
 }
 {
-    function introduceMe(firstName: string, ...hobbies: string[]): string {
-        return `hi, this is ${firstName}, and i like ${hobbies.join(' | ')}`;
+    function introduceMe(firstName: string, ...hobbies: string[]): String {
+        return `Hi, this is ${firstName}, and i like ${hobbies.join(' | ')}`;
     }
 
     console.log(introduceMe('Carlos', 'running', 'swimming', 'programming'));
@@ -79,13 +84,13 @@
         name: 'Carlos',
         age: 40,
         sayHi: ():string => {
-            return `Hi, this is ${this.name}, ${this.age}`;
+            return `Hi, this is ${this.name}, ${this.age}`; // undefined
         },
         sayHi2: function():string {
             return `Hi, this is ${this.name}, ${this.age}`;
         },
         aFunction: (a:string):void => {
-            console.log(`Hi, this is ${this.name}, ${this.age}! This is not a method, just a function: ${a}.`);
+            console.log(`Hi, this is ${this.name}, ${this.age}! This is not a method, just a function: ${a}.`); // undefined
         }
     }
 

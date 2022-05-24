@@ -4,7 +4,11 @@
         name: 'Carlos',
         age: 40,
     };
-    function prettyPrint(person = { name: 'unknown', age: 0 }) {
+    const unknown = {
+        name: 'unknown',
+        age: 0
+    };
+    function prettyPrint(person = unknown) {
         return `${person.name} is ${person.age}`;
     }
     console.log(prettyPrint(onePerson));
@@ -12,7 +16,7 @@
 }
 {
     function introduceMe(firstName, ...hobbies) {
-        return `hi, this is ${firstName}, and i like ${hobbies.join(' | ')}`;
+        return `Hi, this is ${firstName}, and i like ${hobbies.join(' | ')}`;
     }
     console.log(introduceMe('Carlos', 'running', 'swimming', 'programming'));
 }
@@ -68,13 +72,13 @@
         name: 'Carlos',
         age: 40,
         sayHi: () => {
-            return `Hi, this is ${this.name}, ${this.age}`;
+            return `Hi, this is ${this.name}, ${this.age}`; // undefined
         },
         sayHi2: function () {
             return `Hi, this is ${this.name}, ${this.age}`;
         },
         aFunction: (a) => {
-            console.log(`Hi, this is ${this.name}, ${this.age}! This is not a method, just a function: ${a}.`);
+            console.log(`Hi, this is ${this.name}, ${this.age}! This is not a method, just a function: ${a}.`); // undefined
         }
     };
     console.log(myObject.sayHi());

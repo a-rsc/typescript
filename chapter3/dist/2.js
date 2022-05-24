@@ -22,7 +22,7 @@
     // obj[nameSymbol] = 'Álvaro';
     // console.log(obj);
     Object.getOwnPropertyNames(obj).forEach(function (value, index, array) {
-        console.log(value + ' > ' + obj[value]);
+        console.log(value + ' > ' + obj[value], typeof obj[value]);
     });
     console.log(Object.getOwnPropertyNames(obj));
     // Como vemos en el código, las propiedades cuya clave es un símbolo no son accesibles desde los iteradores. Debemos hacer uso del método getOwnPropertySimbols.
@@ -30,7 +30,7 @@
     // tsconfig.json
     // "strict": false
     for (let sym of Object.getOwnPropertySymbols(obj)) {
-        console.log(sym.toString() + ' > ' + obj[sym]);
+        console.log(sym.toString() + ' > ' + obj[sym], typeof obj[sym]);
     }
 }
 {

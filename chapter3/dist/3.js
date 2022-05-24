@@ -34,10 +34,11 @@
     let set = new Set([
         'APPLE', 'ORANGE', 'MANGO',
     ]);
-    set.has('APPLE');
+    console.log(set.has('APPLE'));
     set.delete('APPLE');
     console.log(set.size);
     set.add('ORANGE');
+    console.log(set);
     console.log(set.size);
     set.clear();
     console.log(set.size);
@@ -49,7 +50,7 @@
 {
     let myArrayObject = [];
     myArrayObject.push({
-        name: 'Carlos', age: 40,
+        name: 'Carlos', age: 40
     });
     myArrayObject.push({
         name: 'Eve', age: 42
@@ -84,6 +85,7 @@
     notSure = false;
     // notSure.ifItExists();
     // notSure.toFixed();
+    // let prettySure: Object = 4;
     let prettySure = 4;
     // The toFixed() function in TypeScript is used to format a number using fixed-point notation. It can be used to format a number with a specific number of digits to the right of the decimal.
     console.log(prettySure, prettySure.toFixed());
@@ -97,20 +99,21 @@
     function error(message) {
         throw new Error(message);
     }
-    // Inferred return type is never
-    function fail() {
-        return error('Something failed!');
-    }
     // Function returning never must have unreachable end point
     function infiniteLoop() {
         while (true) {
         }
     }
+    // Inferred return type is never
+    function fail() {
+        return error('Something failed!');
+    }
     // error('Hello world!');
-    // fail();
     // infiniteLoop();
+    // fail();
 }
 {
+    // function foo(arr: readonly string[]) {
     function foo(arr) {
         arr.slice();
         arr.push('!');
