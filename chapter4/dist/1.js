@@ -68,12 +68,11 @@
     console.log(helloWorld2());
 }
 {
+    // https://www.section.io/engineering-education/how-to-use-javascript-arrow-functions-and-this-keyword/
     let myObject = {
         name: 'Carlos',
         age: 40,
-        sayHi: () => {
-            return `Hi, this is ${this.name}, ${this.age}`; // undefined
-        },
+        sayHi: () => `Hi, this is ${this.name}, ${this.age}`,
         sayHi2: function () {
             return `Hi, this is ${this.name}, ${this.age}`;
         },
